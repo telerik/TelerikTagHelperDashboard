@@ -6,6 +6,8 @@ A full video series showing the process step-by-step can be found on YouTube at:
 
 To get stared Clone or copy the master branch and follow the video tutorial after completing the steps below.
 
+The completed application code can be found under the `completed` branch in this repository.
+
 ## Telerik UI for ASP.NET Core
 
 In order to use the application you must have a license or 30 day free trial.
