@@ -1,8 +1,14 @@
-﻿# Getting Started
+﻿# Tag Helper Dashboard
+
+This app is intented to teach developers how to use Tag Helpers from the Telerik UI for ASP.NET Core library.
+
+A full video series showing the process step-by-step can be found on YouTube at: https://www.youtube.com/playlist?list=PLvmaC-XMqeBbdRl1LptZVSG8TqnG31ubO
+
+To get stared Clone or copy the master branch and follow the video tutorial after completing the steps below.
 
 ## Telerik UI for ASP.NET Core
 
-This app is intented to teach developers how to use Tag Helpers from the Telerik UI for ASP.NET Core library. In order to use the application you must have a license or 30 day free trial.
+In order to use the application you must have a license or 30 day free trial.
 
 A 30 day free trial can be obtained from https://www.telerik.com/aspnet-core-ui
 
