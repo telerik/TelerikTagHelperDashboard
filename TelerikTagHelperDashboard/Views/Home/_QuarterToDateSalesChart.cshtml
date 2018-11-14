@@ -1,0 +1,21 @@
+﻿<kendo-chart name="EmployeeQuarterSales" auto-bind="false" theme="nova" style="height:30px" on-data-bound="onQuarterSalesDataBound">
+    <series-defaults type="ChartSeriesType.Bullet"></series-defaults>
+    <series>
+        <series-item current-field="Current" target-field="Target"></series-item>
+    </series>
+    <datasource>
+        <transport>
+            <read url="@Url.Action("EmployeeQuarterSales", "Employees")" data="getOrderSearchCriteria" />
+        </transport>
+        <schema>
+            <model>
+                <fields>
+                    <field name="OrderDate" type="date"></field>
+                    <field name="OrderID" type="number"></field>
+                    <field name="Current" type="number"></field>
+                    <field name="Target" type="number"></field>
+                </fields>
+            </model>
+        </schema>
+    </datasource>
+</kendo-chart>

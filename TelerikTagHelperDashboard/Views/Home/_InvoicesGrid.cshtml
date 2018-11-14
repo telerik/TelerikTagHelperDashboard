@@ -1,0 +1,27 @@
+﻿<kendo-grid name="EmployeeSales" height="550" auto-bind="false">
+    <columns>
+        <column field="CustomerName" title="Customer Name" />
+        <column field="OrderDate" format="{0:MM/dd/yyyy}" />
+        <column field="ProductName" title="Product Name" min-screen-width="768">
+            <filterable multi="true"></filterable>
+        </column>
+        <column field="UnitPrice" title="Unit Price" />
+        <column field="Quantity" min-screen-width="768" />
+    </columns>
+    <datasource type="DataSourceTagHelperType.Ajax" page-size="20">
+        <schema>
+            <model>
+                <fields>
+                    <field name="OrderDate" type="Date"></field>
+                </fields>
+            </model>
+        </schema>
+        <transport>
+            <read url="@Url.Action("Invoices_Read", "Invoice")" data="getOrderSearchCriteria" />
+        </transport>
+    </datasource>
+    <groupable enabled="true" />
+    <sortable enabled="true" />
+    <pageable button-count="5" refresh="true" />
+    <filterable enabled="true" />
+</kendo-grid>

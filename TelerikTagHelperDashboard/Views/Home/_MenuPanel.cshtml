@@ -1,0 +1,35 @@
+﻿@model TelerikTagHelperDashboard.Models.OrderSearchCriteria
+
+<kendo-responsivepanel name="menuPanel" breakpoint="768">
+    <div>
+        <h3>Report Range</h3>
+        <p>
+            <label asp-for="StatsFrom">Stats From</label>
+        </p>
+        <p>
+            <!-- Stats From Date Picker -->
+            <kendo-datepicker for="StatsFrom" value="new DateTime(1996,1,1)" on-change="onCriteriaChange" />
+        </p>
+        <p>
+            <label asp-for="StatsTo">Stats To</label>
+        </p>
+        <p>
+            <!-- Stats To Date Picker -->
+            <kendo-datepicker for="StatsTo" value="new DateTime(1998,1,1)" on-change="onCriteriaChange" />
+        </p>
+        <nav id="employee-list">
+            <h3>Team members</h3>
+            <!-- Employee List View -->
+            <kendo-treeview name="EmployeesList" datatextfield="FullName" on-data-bound="onListDataBound" on-select="setEmployeeState"> 
+                <hierarchical-datasource>
+                    <transport>
+                        <read url="@Url.Action("Employees_Read", "Employees")" type="GET" />
+                    </transport>
+                    <schema>
+                        <hierarchical-model id="EmployeeId" has-children="HasChildren" />
+                    </schema>
+                </hierarchical-datasource>
+            </kendo-treeview>
+        </nav>
+    </div>
+</kendo-responsivepanel>
