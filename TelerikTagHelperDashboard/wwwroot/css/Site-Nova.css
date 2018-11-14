@@ -1,0 +1,50 @@
+﻿/* Top Bar */
+
+#app-title-bar {
+    background-color: #00ACC1;
+}
+
+    #app-title-bar .title {
+        font-size: 22px;
+        text-transform: uppercase;
+    }
+
+/* Side Panel - Employee List */
+
+#employee-list > ul {
+    margin: 0 -10px;
+}
+
+#menuPanel .k-widget.k-datepicker.k-header {
+    width: 100%;
+}
+
+#menuPanel h3 {
+    color: #ff4350;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin: 30px 0 10px -10px;
+    padding: 10px;
+    border-left: 5px solid;
+}
+
+#employee-about img {
+    border: 3px solid #00acc1;
+    border-radius: 50%;
+}
+
+
+/* App */
+
+#main-section-content > article {
+    padding-top: 20px;
+}
+
+/* Small Devices, Tablets, and Up */
+@media only screen and (min-width : 768px) {
+    .app-wrapper {
+        position: relative;
+        margin-left: -15px;
+    }
+}

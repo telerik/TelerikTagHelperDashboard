@@ -1,12 +1,18 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <UserSecretsId>dffb8e65-75c9-4f95-9a7d-e8c73905b251</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+
+    <!--If using a 30 day free trial use the *.Trial package instead-->
+    <PackageReference Include="Telerik.UI.for.AspNet.Core" Version="2018.3.1017" />    
+    <!--<PackageReference Include="Telerik.UI.for.AspNet.Core.Trial" Version="2018.3.1017" />-->
+    
   </ItemGroup>
 
 </Project>

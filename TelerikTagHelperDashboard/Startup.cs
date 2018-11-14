@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -33,6 +34,11 @@ namespace TelerikTagHelperDashboard
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            // Retrieve DB connection string from local secrets store.
+            // Use dotnet user-secrets set ConnectionStrings:NorthwindDB <value> to set this from the command line.
+            // Ex: dotnet user-secrets set ConnectionStrings:NorthwindDB "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=<path to App_Data>\Northwind.MDF;Integrated Security=True;Connect Timeout=30"
+            var connection = Configuration["ConnectionStrings:NorthwindDB"];
+            services.AddDbContext<NorthwindDBContext>(options => options.UseSqlServer(connection));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,6 +64,8 @@ namespace TelerikTagHelperDashboard
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+
         }
     }
 }
