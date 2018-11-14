@@ -1,0 +1,38 @@
+﻿<kendo-chart name="EmployeeAverageSales" auto-bind="false" theme="nova" on-data-bound="onAverageSalesDataBound" style="height:30px">
+    <series-defaults type="ChartSeriesType.Line" />
+    <series>
+        <series-item width="1.5" field="EmployeeSales">
+            <markers visible="false" />
+            <tooltip template="#=kendo.toString(value, 'c2')#" visible="true" />
+        </series-item>
+    </series>
+    <category-axis>
+        <category-axis-item type="ChartCategoryAxisType.Date" field="Date">
+            <major-grid-lines visible="false" />
+            <labels visible="false" />
+        </category-axis-item>
+    </category-axis>
+    <value-axis>
+        <value-axis-item type="Numeric">
+            <major-grid-lines visible="false" />
+            <labels visible="false"></labels>
+        </value-axis-item>
+    </value-axis>
+    <datasource>
+        <transport>
+            <read url="@Url.Action("EmployeeAverageSales", "Employees")" data="getOrderSearchCriteria" />
+        </transport>
+        <schema>
+            <model>
+                <fields>
+                    <field name="Date" type="date"></field>
+                    <field name="EmployeeSales" type="number"></field>
+                    <field name="EmployeeID" type="number"></field>
+                </fields>
+            </model>
+        </schema>
+        <aggregates>
+            <aggregate aggregate="average" field="EmployeeSales" />
+        </aggregates>
+    </datasource>
+</kendo-chart>
