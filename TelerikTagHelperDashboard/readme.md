@@ -1,44 +1,56 @@
-﻿# Tag Helper Dashboard
+# Tag Helper Dashboard
 
-This app is intented to teach developers how to use Tag Helpers from the Telerik UI for ASP.NET Core library.
+This app demonstrates how to use Tag Helpers from the Telerik UI for ASP.NET Core library. The product documentation is found at https://docs.telerik.com/aspnet-core/introduction.
 
-A full video series showing the process step-by-step can be found on YouTube at: https://www.youtube.com/playlist?list=PLvmaC-XMqeBbdRl1LptZVSG8TqnG31ubO
+## Prerequisites
 
-To get stared Clone or copy the master branch and follow the video tutorial after completing the steps below.
+- [.NET Core SDK v2.1 or later](https://www.microsoft.com/net/download)
+- Telerik UI for ASP.NET Core license or [30-day free trial](https://www.telerik.com/aspnet-core-ui)
 
-The completed application code can be found under the `completed` branch in this repository.
+## Clone repository
 
-## Telerik UI for ASP.NET Core
+To get started, clone this GitHub repository. Using the **master** branch, follow the [YouTube video series](https://www.youtube.com/playlist?list=PLvmaC-XMqeBbdRl1LptZVSG8TqnG31ubO) after completing the steps outlined in the sections below.
 
-In order to use the application you must have a license or 30 day free trial.
+To see the completed code, review the **completed** branch.
 
-A 30 day free trial can be obtained from https://www.telerik.com/aspnet-core-ui
+## Configure NuGet
 
-Documentation and installation instructions can be found at: https://docs.telerik.com/aspnet-core/introduction
+A private Telerik NuGet feed is required to build the project. To configure the NuGet feed, see https://docs.telerik.com/aspnet-mvc/getting-started/nuget-install#set-up-nuget-package-source.
 
-Before building the application, please refer to the Dependency Management section and follow the instructions on obtaning the Telerik NuGet feed.
+This app was built using the full licensed version of Telerik UI for ASP.NET Core. If using a trial license, reference the `.Trial` NuGet package in place of the full version. Use NuGet Package Manager or manually edit the *.csproj file by changing the following references:
 
-## Dependency Management
-
-This application was built using the full licensed version of Telerik UI for ASP.NET Core.
-
-A private NuGet feed is required to successfully build this project. For complete instructions on obtaining the Telerik NuGet feed, please see: https://docs.telerik.com/aspnet-mvc/getting-started/nuget-install#set-up-nuget-package-source
-
-If you're using a trial license you will need to reference the `.Trial` dependency in place of the full version. This change can be made from the NuGet Package Manager or via the application's `.csproj` file by changing the followinig references.
-
-```
-<!--If using a 30 day free trial use the *.Trial package instead-->
-<PackageReference Include="Telerik.UI.for.AspNet.Core" Version="<current version>" />    
+```xml
+<!-- If using a 30-day free trial, use the *.Trial package instead -->
+<PackageReference Include="Telerik.UI.for.AspNet.Core" Version="<current version>" />
 <!--<PackageReference Include="Telerik.UI.for.AspNet.Core.Trial" Version="<current version>" />-->
 ```
 
-## Database Connections
+## Store connection string
 
-The applicaiton uses the Northwind Database which is included in the application's `/App_Data` directory for ease of use.
+The app uses the Northwind database, which is found in the project's *App_Data* directory. Store the database connection string as a user secret. Follow the instructions below for Visual Studio or the .NET Core CLI.
 
-Before running the application, set the connection string to the database using the following method.
+### Visual Studio
 
-1. **From the command line** Open the project folder of the application (this is the folder containing the .csproj file).
-2. Run following command using your applicaiton's path. `dotnet user-secrets set ConnectionStrings:NorthwindDB "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=<path to App_Data>\Northwind.MDF;Integrated Security=True;Connect Timeout=30"`
-3. Check the application by running the app and testing the endpoint `<localhost>/employees/employees_read`. The endpoint will return `[{"employeeId":2,"fullName":"Andrew Fuller","hasChildren":true}]`
+1. Right-click the project in **Solution Explorer**, and select **Manage User Secrets** from the context menu.
+1. Replace the contents of *secrets.json* with the following. Remember to replace `<path-to-App_Data>` with your project's *App_Data* directory path:
 
+    ```json
+    {
+      "ConnectionStrings": {
+        "NorthwindDB": "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=<path-to-App_Data>\\Northwind.MDF;Integrated Security=True;Connect Timeout=30"
+      }
+    }
+    ```
+
+### .NET Core CLI
+
+1. From a command shell, navigate to the root project directory. This directory contains the *.csproj file.
+1. Run the following command, replacing `<path-to-App_Data>` with your project's *App_Data* directory path:
+
+    ```console
+    dotnet user-secrets set ConnectionStrings:NorthwindDB "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=<path-to-App_Data>\Northwind.MDF;Integrated Security=True;Connect Timeout=30"
+    ```
+
+## Test app
+
+In a browser, navigate to `http://<localhost>/employees/employees_read`. The endpoint returns `[{"employeeId":2,"fullName":"Andrew Fuller","hasChildren":true}]`.
