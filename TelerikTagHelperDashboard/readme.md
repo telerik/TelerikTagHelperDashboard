@@ -1,6 +1,10 @@
 # Tag Helper Dashboard
 
-This app demonstrates how to use Tag Helpers from the Telerik UI for ASP.NET Core library. The product documentation is found at https://docs.telerik.com/aspnet-core/introduction.
+![](https://raw.githubusercontent.com/telerik/TelerikTagHelperDashboard/completed/TelerikTagHelperDashboard/wwwroot/images/completed-app.jpg)
+
+This app demonstrates how to use Tag Helpers from the Telerik UI for ASP.NET Core library. 
+
+The product documentation is found at https://docs.telerik.com/aspnet-core/introduction.
 
 ## Prerequisites
 
@@ -53,4 +57,6 @@ The app uses the Northwind database, which is found in the project's *App_Data* 
 
 ## Test app
 
-In a browser, navigate to `http://<localhost>/employees/employees_read`. The endpoint returns `[{"employeeId":2,"fullName":"Andrew Fuller","hasChildren":true}]`.
+In a browser, navigate to `http://<localhost>/employees/employees_read`. 
+
+The endpoint returns `[{"employeeId":2,"fullName":"Andrew Fuller","hasChildren":true}]`.
