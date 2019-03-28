@@ -19,9 +19,11 @@ To see the completed code, review the **completed** branch.
 
 ## Configure NuGet
 
-A private Telerik NuGet feed is required to build the project. To configure the NuGet feed, see https://docs.telerik.com/aspnet-mvc/getting-started/nuget-install#set-up-nuget-package-source.
+This app was built using the full licensed version of Telerik UI for ASP.NET Core.
 
-This app was built using the full licensed version of Telerik UI for ASP.NET Core. If using a trial license, reference the `.Trial` NuGet package in place of the full version. Use NuGet Package Manager or manually edit the *.csproj file by changing the following references:
+If using the full licensed version, a private Telerik NuGet feed is required to build the project. To configure the NuGet feed, see https://docs.telerik.com/aspnet-mvc/getting-started/nuget-install#set-up-nuget-package-source.
+
+If using a trial license, reference the `.Trial` NuGet package in place of the full version. This package is available on the **nuget.org** feed. Use NuGet Package Manager or manually edit the *.csproj file by changing the following references:
 
 ```xml
 <!-- If using a 30-day free trial, use the *.Trial package instead -->
@@ -36,7 +38,7 @@ The app uses the Northwind database, which is found in the project's *App_Data* 
 ### Visual Studio
 
 1. Right-click the project in **Solution Explorer**, and select **Manage User Secrets** from the context menu.
-1. Replace the contents of *secrets.json* with the following. Remember to replace `<path-to-App_Data>` with your project's *App_Data* directory path:
+1. Replace the contents of *secrets.json* with the following. Remember to replace `<path-to-App_Data>` with your project's *App_Data* directory path (for example, *C:\\TelerikTagHelperDashboard\\TelerikTagHelperDashboard\\App_Data*):
 
     ```json
     {
